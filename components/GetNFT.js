@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import NftModal from "./NftModal"
 import Link from "next/link"
 
@@ -55,9 +55,14 @@ const GetNFT = ({ accounts, setAccounts }) => {
     }
   }
 
-  // Function runs and adds more nfts to our array newNfts on every click
-  function handleGetNftsClick() {
-    getNFTs()
+  // Effects runs the following function (handleGetNftsClick) to start up when the page loads
+  useEffect(() => {
+    handleGetNftsClick()
+  }, [])
+
+  // Function runs our getNFTs adds more nfts to our array newNfts on every click
+  const handleGetNftsClick = async () => {
+    await getNFTs()
     setPageNumber(pageNumber + 1)
     setSelectedNftDetails(null)
   }
