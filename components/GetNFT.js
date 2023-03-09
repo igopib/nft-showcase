@@ -23,6 +23,7 @@ const GetNFT = ({ accounts, setAccounts }) => {
     if (window.ethereum) {
       const provider = new ethers.BrowserProvider(window.ethereum)
 
+      // Ethers contract instance
       const nftContract = new ethers.Contract(Address, ContractABI, provider)
 
       try {
@@ -32,6 +33,7 @@ const GetNFT = ({ accounts, setAccounts }) => {
 
         const newNfts = []
 
+        // Looping through the
         for (let i = start; i < end; i++) {
           const tokenId = await nftContract.tokenByIndex(i)
           const tokenURI = await nftContract.tokenURI(tokenId)
@@ -84,7 +86,10 @@ const GetNFT = ({ accounts, setAccounts }) => {
         ))}
       </div>
       {openModel && (
-        <NftModal setOpenModel={setOpenModel} nft={selectedNftDetails} />
+        <NftModal
+          setOpenModel={setOpenModel}
+          selectedNftDetails={selectedNftDetails}
+        />
       )}
     </div>
   )

@@ -9,7 +9,7 @@ const Address = "0x82C8C6231E7a4c40d014cb426a49B42863524C88"
 
 const NftModal = ({ setOpenModel, selectedNftDetails }) => {
   // State variables
-  const [nfts, setNfts] = useState([])
+  const [nftDetails, setNftDetails] = useState(null)
 
   async function getSelectedNFT() {
     if (window.ethereum) {
@@ -18,23 +18,24 @@ const NftModal = ({ setOpenModel, selectedNftDetails }) => {
       const nftContract = new ethers.Contract(Address, ContractABI, provider)
 
       try {
-        const nftDetails = []
-        const tokenId = await nftContract.tokenByIndex(selectedNftDetails)
-        const tokenURI = await nftContract.tokenURI(tokenId)
-        const metadataResponse = await fetch(tokenURI)
-        const metadata = await metadataResponse.json()
-        const owner = await nftContract.ownerOf(tokenId)
-        nftDetails.push({ tokenId, metadata, owner })
+        // const tokenId = await nftContract.tokenByIndex(selectedNftDetails)
+        // const tokenURI = await nftContract.tokenURI(tokenId)
+        // const metadataResponse = await fetch(tokenURI)
+        // const metadata = await metadataResponse.json()
+        // const owner = await nftContract.ownerOf(tokenId)
+        // const selectedNftDetails = { tokenId, metadata, owner }
 
-        setNfts([nftDetails])
+        setNftDetails(selectedNftDetails)
+        console.log(nftDetails)
       } catch (err) {
         console.log("error: ", err)
       }
     }
   }
+
   useEffect(() => {
     getSelectedNFT()
-  }, [])
+  }, [selectedNftDetails])
 
   return (
     <div className="fixed inset-0 bg-black/80 bg-opacity-80 z-50">
@@ -45,23 +46,25 @@ const NftModal = ({ setOpenModel, selectedNftDetails }) => {
         >
           <AiOutlineClose size={30} />
         </button>
-        {nfts.map((nft) => (
+        {nftDetails && (
           <div className="mt-8">
-            <h2 className="text-xl font-bold mb-2">{nft.metadata.name}</h2>
+            <h2 className="text-xl font-bold mb-2">
+              {nftDetails.metadata.name}
+            </h2>
             <p className="text-gray-700 text-base">
-              {nft.metadata.description}
+              {nftDetails.metadata.description}
             </p>
             <p className="text-gray-700 text-base">
-              Token ID: {nft.tokenId.toString()}
+              Token ID: {nftDetails.tokenId.toString()}
             </p>
-            <p className="text-gray-700 text-base">Owner: {nft.owner}</p>
+            <p className="text-gray-700 text-base">Owner: {nftDetails.owner}</p>
             <img
-              src={nft.metadata.image}
-              alt={nft.metadata.name}
+              src={nftDetails.metadata.image}
+              alt={nftDetails.metadata.name}
               className="mt-4 w-full"
             />
           </div>
-        ))}
+        )}
       </div>
     </div>
   )
