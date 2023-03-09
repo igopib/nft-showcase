@@ -1,5 +1,9 @@
 import { useState } from "react"
+import NftModal from "./NftModal"
+
 import { ethers, BigNumber } from "ethers"
+
+// Contract Details
 import ContractABI from "./ContractAbi.json"
 
 const Address = "0x82C8C6231E7a4c40d014cb426a49B42863524C88"
@@ -10,7 +14,8 @@ const GetNFT = ({ accounts, setAccounts }) => {
   // All State Variables
   const [pageNumber, setPageNumber] = useState(1)
   const [nfts, setNfts] = useState([])
-  const [selectedNft, setSelectedNft] = useState(null)
+  const [openModel, setOpenModel] = useState(false)
+  const [selectedNftDetails, setSelectedNftDetails] = useState(null)
 
   const pageSize = 10
 
@@ -49,6 +54,7 @@ const GetNFT = ({ accounts, setAccounts }) => {
   function handleGetNftsClick() {
     getNFTs()
     setPageNumber(pageNumber + 1)
+    setSelectedNftDetails(null)
   }
 
   return (
@@ -65,6 +71,10 @@ const GetNFT = ({ accounts, setAccounts }) => {
       <div className="grid grid-cols-5 gap-8 mt-10 items-center w-[90%] m-auto pb-10">
         {nfts.map((nft) => (
           <div
+            onClick={() => {
+              setSelectedNftDetails(nft)
+              setOpenModel(true)
+            }}
             key={nft.tokenId}
             className="border border-gray-700 p-4 hover:bg-zinc-900 hover:border-black transform duration-200 cursor-pointer"
           >
@@ -73,6 +83,9 @@ const GetNFT = ({ accounts, setAccounts }) => {
           </div>
         ))}
       </div>
+      {openModel && (
+        <NftModal setOpenModel={setOpenModel} nft={selectedNftDetails} />
+      )}
     </div>
   )
 }
