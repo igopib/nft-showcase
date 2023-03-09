@@ -97,7 +97,7 @@ const GetNFT = ({ accounts, setAccounts }) => {
               setOpenModel(true)
             }}
             key={nft.tokenId}
-            className="border border-zinc-400 p-4 hover:bg-zinc-300 hover:border-black/0 hover:text-black transform duration-200 cursor-pointer rounded-lg "
+            className="border border-zinc-400 p-4 hover:bg-zinc-300 hover:border-black/0 hover:scale-105 hover:text-black transform duration-200 cursor-pointer rounded-lg "
           >
             <img
               src={nft.metadata.image}
