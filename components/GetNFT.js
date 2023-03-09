@@ -83,7 +83,7 @@ const GetNFT = ({}) => {
         <div className=" flex items-center w-full mt-10 justify-center ">
           <button
             onClick={handleNewPage}
-            className="bg-zinc-800 hover:bg-zinc-200 transform duration-300 text-white hover:text-zinc-800 font-semibold py-2 px-4 border border-white rounded"
+            className="bg-black/30 hover:bg-zinc-200 transform duration-300  text-white hover:shadow-lg hover:shadow-black hover:text-zinc-800 font-semibold py-2 px-4 border border-white rounded-lg"
           >
             Load NFT's
           </button>
@@ -98,14 +98,14 @@ const GetNFT = ({}) => {
               setOpenModel(true)
             }}
             key={nft.tokenId}
-            className="border border-zinc-400 p-4 hover:bg-zinc-300 hover:shadow-xl hover:shadow-black hover:border-black/0 hover:scale-105 hover:text-black transform duration-200 cursor-pointer rounded-lg"
+            className="border border-zinc-800 p-4 bg-black/30 hover:bg-zinc-300 hover:shadow-xl hover:shadow-black hover:border-black/80 hover:scale-105 hover:text-black transform duration-200 cursor-pointer rounded-lg"
           >
             <img
               src={nft.metadata.image}
               alt={nft.metadata.name}
               className="rounded-lg"
             />
-            <p className="text-center py-2">ID: {nft.tokenId.toString()}</p>
+            <p className="text-center pt-4">ID: {nft.tokenId.toString()}</p>
           </div>
         ))}
       </div>

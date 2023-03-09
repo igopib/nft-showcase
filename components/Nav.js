@@ -14,7 +14,7 @@ const Connect = ({ accounts, setAccounts }) => {
   }
 
   return (
-    <div className=" flex items-center w-full mt-10 justify-between px-12 ">
+    <div className=" flex items-center w-full py-6 justify-between px-16 bg-black/30">
       <div className="text-2xl hover:text-zinc-400 transform duration-200 font-semibold ">
         <Link
           href="https://igopib.github.io/devProfile/"
