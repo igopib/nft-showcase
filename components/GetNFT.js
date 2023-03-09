@@ -60,8 +60,8 @@ const GetNFT = ({ accounts, setAccounts }) => {
   }
 
   return (
-    <div>
-      <div className=" flex items-center w-full mt-20 justify-center ">
+    <div className="py-8">
+      <div className=" flex items-center w-full mt-10 justify-center ">
         <button
           onClick={handleGetNftsClick}
           className="bg-zinc-300 hover:bg-zinc-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
@@ -70,7 +70,7 @@ const GetNFT = ({ accounts, setAccounts }) => {
         </button>
       </div>
 
-      <div className="grid grid-cols-5 gap-8 mt-10 items-center w-[90%] m-auto pb-10">
+      <div className="grid grid-cols-5 gap-8 mt-10 items-center w-[90%] m-auto ">
         {nfts.map((nft) => (
           <div
             onClick={() => {
@@ -78,9 +78,13 @@ const GetNFT = ({ accounts, setAccounts }) => {
               setOpenModel(true)
             }}
             key={nft.tokenId}
-            className="border border-gray-700 p-4 hover:bg-zinc-900 hover:border-black transform duration-200 cursor-pointer"
+            className="border border-zinc-400 p-4 hover:bg-zinc-300 hover:border-black/0 hover:text-black transform duration-200 cursor-pointer rounded-lg "
           >
-            <img src={nft.metadata.image} alt={nft.metadata.name} />
+            <img
+              src={nft.metadata.image}
+              alt={nft.metadata.name}
+              className="rounded-lg"
+            />
             <p className="text-center py-2">ID: {nft.tokenId.toString()}</p>
           </div>
         ))}

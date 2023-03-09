@@ -13,7 +13,7 @@ const Connect = ({ accounts, setAccounts }) => {
   }
 
   return (
-    <div className=" flex items-center w-full mt-20 justify-center ">
+    <div className=" flex items-center w-full mt-10 justify-center ">
       {/* Connect Button */}
       {isConnected ? (
         <div>
