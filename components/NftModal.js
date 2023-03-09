@@ -70,7 +70,7 @@ const NftModal = ({ setOpenModel, selectedNftDetails }) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <button className="bg-zinc-300 hover:bg-zinc-500/60 transform duration-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded-md">
+                <button className="bg-zinc-300 text-lg hover:bg-[#161616] transform duration-200 text-gray-800 hover:text-white hover:shadow-lg hover:shadow-black  font-semibold py-2 px-8 border border-[#161616] rounded-md">
                   Buy
                 </button>
               </Link>

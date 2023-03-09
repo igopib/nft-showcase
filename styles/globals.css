@@ -4,6 +4,6 @@
 
 @layer base {
   body {
-    @apply bg-[#27262C] text-white tracking-wide font-robot;
+    @apply bg-[#161616] text-white tracking-wide font-robot;
   }
 }

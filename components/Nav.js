@@ -15,7 +15,7 @@ const Connect = ({ accounts, setAccounts }) => {
 
   return (
     <div className=" flex items-center w-full mt-10 justify-between px-12 ">
-      <div className="text-2xl hover:text-zinc-400 transform duration-200 ">
+      <div className="text-2xl hover:text-zinc-400 transform duration-200 font-semibold ">
         <Link
           href="https://igopib.github.io/devProfile/"
           target="_blank"
@@ -24,7 +24,7 @@ const Connect = ({ accounts, setAccounts }) => {
           Portfolio
         </Link>
       </div>
-      <div className="text-2xl hover:text-zinc-400 transform duration-200 mr-8">
+      <div className="text-2xl hover:text-zinc-400 transform duration-200 mr-8 font-semibold">
         <Link
           href="https://github.com/igopib/nft-showcase"
           target="_blank"
@@ -39,7 +39,7 @@ const Connect = ({ accounts, setAccounts }) => {
           {" "}
           <button
             onClick={connectAccount}
-            className="bg-zinc-800 hover:bg-zinc-200 transform duration-300 text-white hover:text-zinc-800 font-semibold py-2 px-4 border border-white rounded"
+            className="bg-zinc-800hover:bg-zinc-200 transform duration-300 text-white hover:text-zinc-800 font-semibold py-2 px-4 border border-white rounded"
           >
             Connected
           </button>{" "}
