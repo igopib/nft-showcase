@@ -30,8 +30,8 @@ const NftModal = ({ setOpenModel, selectedNftDetails }) => {
   }, [selectedNftDetails])
 
   return (
-    <div className="fixed inset-0 bg-black/90 z-10 mt-8 font-robot ">
-      <div className="max-w-lg mx-auto p-4 bg-zinc-300 rounded-lg ">
+    <div className="fixed inset-0 bg-black/90 z-10 py-8 font-robot ">
+      <div className="max-w-sm mx-auto p-4 bg-zinc-300 rounded-lg ">
         {nftDetails && (
           <div className="my-4">
             <button
