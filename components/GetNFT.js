@@ -1,11 +1,11 @@
 import { useState } from "react"
 import NftModal from "./NftModal"
+import Link from "next/link"
 
 import { ethers, BigNumber } from "ethers"
 
 // Contract Details
 import ContractABI from "./ContractAbi.json"
-
 const Address = "0x82C8C6231E7a4c40d014cb426a49B42863524C88"
 
 const GetNFT = ({ accounts, setAccounts }) => {
@@ -17,6 +17,7 @@ const GetNFT = ({ accounts, setAccounts }) => {
   const [openModel, setOpenModel] = useState(false)
   const [selectedNftDetails, setSelectedNftDetails] = useState(null)
 
+  // Set the size of acquired nfts every click of the button
   const pageSize = 10
 
   async function getNFTs() {
@@ -31,9 +32,10 @@ const GetNFT = ({ accounts, setAccounts }) => {
         const start = (pageNumber - 1) * pageSize
         const end = Math.min(start + pageSize, Number(totalSupply))
 
+        // Array to store all the nfts
         const newNfts = []
 
-        // Looping through the
+        // Looping through the NFT's
         for (let i = start; i < end; i++) {
           const tokenId = await nftContract.tokenByIndex(i)
           const tokenURI = await nftContract.tokenURI(tokenId)
@@ -53,6 +55,7 @@ const GetNFT = ({ accounts, setAccounts }) => {
     }
   }
 
+  // Function runs and adds more nfts to our array newNfts on every click
   function handleGetNftsClick() {
     getNFTs()
     setPageNumber(pageNumber + 1)
@@ -61,13 +64,24 @@ const GetNFT = ({ accounts, setAccounts }) => {
 
   return (
     <div className="py-8">
-      <div className=" flex items-center w-full mt-10 justify-center ">
-        <button
-          onClick={handleGetNftsClick}
-          className="bg-zinc-800 hover:bg-zinc-200 transform duration-300 text-white hover:text-zinc-800 font-semibold py-2 px-4 border border-white rounded"
+      <div>
+        <Link
+          href="https://etherscan.io/address/0x82c8c6231e7a4c40d014cb426a49b42863524c88"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          Load NFT's
-        </button>
+          <p className="text-center text-sm text-zinc-400 hover:text-white transform duration-300 w-[50%] m-auto">
+            0x82C8C6231E7a4c40d014cb426a49B42863524C88
+          </p>
+        </Link>
+        <div className=" flex items-center w-full mt-10 justify-center ">
+          <button
+            onClick={handleGetNftsClick}
+            className="bg-zinc-800 hover:bg-zinc-200 transform duration-300 text-white hover:text-zinc-800 font-semibold py-2 px-4 border border-white rounded"
+          >
+            Load NFT's
+          </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-5 gap-8 mt-10 items-center w-[90%] m-auto ">

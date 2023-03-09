@@ -1,38 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NFT Showcase (Nextjs, Ethers, Tailwindcss)
 
-## Getting Started
+### Starting build
 
-First, run the development server:
+1. Clone using - https://github.com/igopib/nft-showcase.git
+2. yarn ( Installs all the dependancies )
+3. yarn dev ( Starts up the local environment for nextjs app )
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+This does not use any external provider!
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### How does this work ?
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+This app can grab all the NFT's of any given address. Just needs to update the Address and ABI inside the GetNFT.js component.
+Grabs 10 NFT's at a time and saves them to a array to later map the content to a grid.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+1. The list of NFTs are displayed as a grid of cards, with each card displaying the
+   NFT's details.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+2. When a user clicks on a card, a modal should displays more details
+   about the NFT, such as its description and the owner's address.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. The modal also have a button that allows the user to purchase the NFT. Clicking
+   the button navigate them to the relevant OpenSea page.
 
-## Learn More
+#### Improvements ?
 
-To learn more about Next.js, take a look at the following resources:
+1. Given more time design could be improved but still fulfills a clean look.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. Could add a spinner or a wait timer to deal with the time it takes to load all the NFT's.
