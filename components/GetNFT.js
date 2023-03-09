@@ -64,9 +64,9 @@ const GetNFT = ({ accounts, setAccounts }) => {
       <div className=" flex items-center w-full mt-10 justify-center ">
         <button
           onClick={handleGetNftsClick}
-          className="bg-zinc-300 hover:bg-zinc-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+          className="bg-zinc-800 hover:bg-zinc-200 transform duration-300 text-white hover:text-zinc-800 font-semibold py-2 px-4 border border-white rounded"
         >
-          Get Total Nft
+          Load NFT's
         </button>
       </div>
 

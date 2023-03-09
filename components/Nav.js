@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import Link from "next/link"
 
 const Connect = ({ accounts, setAccounts }) => {
   const isConnected = Boolean(accounts[0])
@@ -13,14 +14,32 @@ const Connect = ({ accounts, setAccounts }) => {
   }
 
   return (
-    <div className=" flex items-center w-full mt-10 justify-center ">
+    <div className=" flex items-center w-full mt-10 justify-between px-12 ">
+      <div className="text-2xl hover:text-zinc-400 transform duration-200 ">
+        <Link
+          href="https://igopib.github.io/devProfile/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Portfolio
+        </Link>
+      </div>
+      <div className="text-2xl hover:text-zinc-400 transform duration-200 mr-8">
+        <Link
+          href="https://github.com/igopib/nft-showcase"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Github
+        </Link>
+      </div>
       {/* Connect Button */}
       {isConnected ? (
         <div>
           {" "}
           <button
             onClick={connectAccount}
-            className="bg-zinc-300 hover:bg-zinc-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+            className="bg-zinc-800 hover:bg-zinc-200 transform duration-300 text-white hover:text-zinc-800 font-semibold py-2 px-4 border border-white rounded"
           >
             Connected
           </button>{" "}
@@ -29,7 +48,7 @@ const Connect = ({ accounts, setAccounts }) => {
         <div>
           <button
             onClick={connectAccount}
-            className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+            className="bg-zinc-800 hover:bg-zinc-200 transform duration-300 text-white hover:text-zinc-800 font-semibold py-2 px-4 border border-white rounded"
           >
             Connect
           </button>

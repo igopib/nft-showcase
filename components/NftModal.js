@@ -6,7 +6,6 @@ import { ethers } from "ethers"
 import { AiOutlineClose } from "react-icons/ai"
 
 // Contract Details
-import ContractABI from "./ContractAbi.json"
 const Address = "0x82C8C6231E7a4c40d014cb426a49B42863524C88"
 
 const NftModal = ({ setOpenModel, selectedNftDetails }) => {
@@ -18,6 +17,7 @@ const NftModal = ({ setOpenModel, selectedNftDetails }) => {
       const provider = new ethers.BrowserProvider(window.ethereum)
 
       try {
+        // Here NFT stats are saved as a local state, but we get the inital value from GetNFT .
         setNftDetails(selectedNftDetails)
       } catch (err) {
         console.log("error: ", err)
@@ -64,7 +64,7 @@ const NftModal = ({ setOpenModel, selectedNftDetails }) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <button className="bg-zinc-300 hover:bg-zinc-500/60 transform duration-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                <button className="bg-zinc-300 hover:bg-zinc-500/60 transform duration-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded-md">
                   Buy
                 </button>
               </Link>
