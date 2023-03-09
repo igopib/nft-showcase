@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "@/styles/globals.css"
+import "../styles/globals.css"
 import Nav from "../components/Nav"
 import GetNFT from "../components/GetNFT"
 
