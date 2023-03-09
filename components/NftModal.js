@@ -55,9 +55,15 @@ const NftModal = ({ setOpenModel, selectedNftDetails }) => {
             <p className="text-gray-700 text-base ">
               NFT ID: {nftDetails.tokenId.toString()}
             </p>
-            <p className="text-gray-700 text-base">
-              Owner : {nftDetails.owner}
-            </p>
+            <Link
+              href={`https://etherscan.io/address/${nftDetails.owner}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p className="text-gray-700 text-base overflow-hidden hover:text-zinc-500 transform duration-300 ">
+                Owner : <span className="truncate">{nftDetails.owner}</span>
+              </p>
+            </Link>
             <div className="text-center items-center  py-4">
               <Link
                 href={`https://opensea.io/assets/ethereum/${Address}/${nftDetails.tokenId.toString()}`}
