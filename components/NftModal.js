@@ -3,7 +3,7 @@ import Link from "next/link"
 import GetNFT from "./GetNFT"
 
 import { ethers } from "ethers"
-import { AiOutlineClose } from "react-icons/ai"
+import { SlClose } from "react-icons/sl"
 
 // Contract Details
 const Address = "0x82C8C6231E7a4c40d014cb426a49B42863524C88"
@@ -31,15 +31,9 @@ const NftModal = ({ setOpenModel, selectedNftDetails }) => {
 
   return (
     <div className="fixed inset-0 bg-black/90 z-10 py-8 font-robot ">
-      <div className="w-[30rem] h-[90%] mx-auto p-4 px-12 bg-zinc-300 rounded-lg ">
+      <div className="w-[30rem] h-[90%] mx-auto p-4 px-12 bg-zinc-300 rounded-xl text-center ">
         {nftDetails && (
           <div className="my-4">
-            <button
-              className=" text-zinc-700 hover:text-zinc-200 transform duration-200  m-auto "
-              onClick={() => setOpenModel(false)}
-            >
-              <AiOutlineClose size={25} className="" />
-            </button>
             <h2 className="text-zinc-700 text-2xl font-semibold text-center py-4 mb-2 ">
               {nftDetails.metadata.name}
             </h2>
@@ -48,8 +42,7 @@ const NftModal = ({ setOpenModel, selectedNftDetails }) => {
               alt={nftDetails.metadata.name}
               className="mb-8 w-full rounded-md shadow-lg shadow-black max-w-[80%] m-auto"
             />
-
-            <p className="text-gray-700 text-base py-2 font-semibold">
+            <p className="text-gray-700 text-base py-2 mb-8 font-semibold">
               {nftDetails.metadata.description}
             </p>
             <p className="text-gray-700 text-base ">
@@ -74,6 +67,14 @@ const NftModal = ({ setOpenModel, selectedNftDetails }) => {
                   Buy
                 </button>
               </Link>
+            </div>
+            <div className="justify-center flex pt-4">
+              <button
+                className=" text-zinc-700 hover:text-zinc-200 transform duration-200  m-auto text-center"
+                onClick={() => setOpenModel(false)}
+              >
+                <SlClose size={30} className="text-center" />
+              </button>
             </div>
           </div>
         )}
