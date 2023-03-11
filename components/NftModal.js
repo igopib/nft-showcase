@@ -30,8 +30,8 @@ const NftModal = ({ setOpenModel, selectedNftDetails }) => {
   }, [selectedNftDetails])
 
   return (
-    <div className="fixed inset-0 bg-black/90 z-10 py-8 font-robot ">
-      <div className="w-[30rem] h-[90%] mx-auto p-4 px-12 bg-zinc-300 rounded-xl text-center ">
+    <div className="fixed inset-0 bg-black/80 z-10 py-8 font-robot ">
+      <div className="w-[27rem] h-full mx-auto  px-12 bg-zinc-300 rounded-xl text-center ">
         {nftDetails && (
           <div className="my-4">
             <h2 className="text-zinc-700 text-2xl font-semibold text-center py-4 mb-2 ">
@@ -63,7 +63,7 @@ const NftModal = ({ setOpenModel, selectedNftDetails }) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <button className="mt-8 bg-zinc-300 text-lg hover:bg-[#161616] transform duration-300 text-gray-800 hover:text-white hover:shadow-lg hover:shadow-black  font-semibold py-2 px-8 border border-[#161616] rounded-md">
+                <button className="mt-3 bg-zinc-300 text-lg hover:bg-[#161616] transform duration-300 text-gray-800 hover:text-white hover:shadow-lg hover:shadow-black  font-semibold py-2 px-8 border border-[#161616] rounded-md">
                   Buy
                 </button>
               </Link>
