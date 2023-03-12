@@ -9,7 +9,7 @@ import ContractABI from "./ContractAbi.json"
 const Address = "0x82C8C6231E7a4c40d014cb426a49B42863524C88"
 
 const GetNFT = ({}) => {
-  const pageSize = 10
+  const pageSize = 8
   // All State Variables
   const [pageNumber, setPageNumber] = useState(1)
   const [nfts, setNfts] = useState([])
@@ -69,7 +69,7 @@ const GetNFT = ({}) => {
   }
 
   return (
-    <div className="py-8">
+    <div className="py-8 w-full">
       <div>
         <Link
           href={`https://etherscan.io/address/${Address}`}
@@ -90,7 +90,7 @@ const GetNFT = ({}) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-5 gap-10 mt-10 items-center w-[90%] m-auto ">
+      <div className="grid grid-cols-4 gap-4 mt-10 items-center w-[90%] m-auto ">
         {nfts.map((nft) => (
           <div
             onClick={() => {
