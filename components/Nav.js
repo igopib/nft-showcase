@@ -39,7 +39,7 @@ const Connect = ({ accounts, setAccounts }) => {
           {" "}
           <button
             onClick={connectAccount}
-            className="bg-zinc-800hover:bg-zinc-200 transform duration-300 text-white hover:text-zinc-800 font-semibold py-2 px-4 border border-white rounded"
+            className="bg-zinc-800 hover:bg-zinc-200 transform duration-300 text-white hover:text-zinc-800 font-semibold py-2 px-4 border border-white rounded"
           >
             Connected
           </button>{" "}
